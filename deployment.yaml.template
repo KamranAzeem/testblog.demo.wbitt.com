@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testblog-deployment
+  labels:
+    app: testblog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testblog
+  template:
+    metadata:
+      labels:
+        app: testblog
+    spec:
+      containers:
+      - name: testblog
+        image: wordpress:latest
+        ports:
+        - containerPort: 80
+
